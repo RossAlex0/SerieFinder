@@ -13,10 +13,7 @@ const app = require("./app/config");
 const port = process.env.APP_PORT;
 
 // Start the server and listen on the specified port
-const sayWelcome = ((req, res) => {
-  res.send("Welcome to SerieFinder !!");
-})
-app.get("/", sayWelcome)
+
 
 app
   .listen(port, () => {

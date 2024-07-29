@@ -20,4 +20,8 @@ router.use("/items", itemsRouter);
 
 /* ************************************************************************* */
 
+const categoriesRouter = require("./categories/router");
+
+router.use("/categories", categoriesRouter);
+
 module.exports = router;

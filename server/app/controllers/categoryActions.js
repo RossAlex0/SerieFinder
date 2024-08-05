@@ -1,5 +1,7 @@
 // Some data to make the trick
 
+const tables = require("../../database/tables");
+
 const categories = [
     {
       id: 1,
@@ -13,14 +15,11 @@ const categories = [
   
   // Declare the actions
   
-  const browse = (req, res) => {
-    const categorieFilter = 
-        req.query.q
-        ? categories.filter((category) => category.name.toLowerCase().includes(req.query.q.toLowerCase()))
-        : categories;
-
-    res.json(categorieFilter);
-};
+  const browse = async (req, res) => {
+    const categoriesFromDB = await tables.category.readAll();
+  
+    res.json(categoriesFromDB);
+  };
 
   const read = (req, res) => {
     const parsedId = parseInt(req.params.id, 10);  
